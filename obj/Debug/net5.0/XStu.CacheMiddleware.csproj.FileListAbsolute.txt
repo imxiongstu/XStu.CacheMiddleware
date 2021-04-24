@@ -1,0 +1,12 @@
+F:\VS-Project\Class library\XStu.CacheMiddleware\bin\Debug\net5.0\XStu.CacheMiddleware.deps.json
+F:\VS-Project\Class library\XStu.CacheMiddleware\bin\Debug\net5.0\XStu.CacheMiddleware.dll
+F:\VS-Project\Class library\XStu.CacheMiddleware\bin\Debug\net5.0\ref\XStu.CacheMiddleware.dll
+F:\VS-Project\Class library\XStu.CacheMiddleware\bin\Debug\net5.0\XStu.CacheMiddleware.pdb
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\net5.0\XStu.CacheMiddleware.csprojAssemblyReference.cache
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\net5.0\XStu.CacheMiddleware.GeneratedMSBuildEditorConfig.editorconfig
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\net5.0\XStu.CacheMiddleware.AssemblyInfoInputs.cache
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\net5.0\XStu.CacheMiddleware.AssemblyInfo.cs
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\net5.0\XStu.CacheMiddleware.csproj.CoreCompileInputs.cache
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\net5.0\XStu.CacheMiddleware.dll
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\net5.0\ref\XStu.CacheMiddleware.dll
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\net5.0\XStu.CacheMiddleware.pdb

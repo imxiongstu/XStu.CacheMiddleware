@@ -1,0 +1,9 @@
+F:\VS-Project\Class library\XStu.CacheMiddleware\bin\Debug\netcoreapp3.1\XStu.CacheMiddleware.deps.json
+F:\VS-Project\Class library\XStu.CacheMiddleware\bin\Debug\netcoreapp3.1\XStu.CacheMiddleware.dll
+F:\VS-Project\Class library\XStu.CacheMiddleware\bin\Debug\netcoreapp3.1\XStu.CacheMiddleware.pdb
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\netcoreapp3.1\XStu.CacheMiddleware.csprojAssemblyReference.cache
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\netcoreapp3.1\XStu.CacheMiddleware.AssemblyInfoInputs.cache
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\netcoreapp3.1\XStu.CacheMiddleware.AssemblyInfo.cs
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\netcoreapp3.1\XStu.CacheMiddleware.csproj.CoreCompileInputs.cache
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\netcoreapp3.1\XStu.CacheMiddleware.dll
+F:\VS-Project\Class library\XStu.CacheMiddleware\obj\Debug\netcoreapp3.1\XStu.CacheMiddleware.pdb

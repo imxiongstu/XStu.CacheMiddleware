@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\VS-Project\\Class library\\XStu.CacheMiddleware\\XStu.CacheMiddleware.csproj": {}
+  },
+  "projects": {
+    "F:\\VS-Project\\Class library\\XStu.CacheMiddleware\\XStu.CacheMiddleware.csproj": {
+      "version": "5.0.2",
+      "restore": {
+        "projectUniqueName": "F:\\VS-Project\\Class library\\XStu.CacheMiddleware\\XStu.CacheMiddleware.csproj",
+        "projectName": "XStu.CacheMiddleware",
+        "projectPath": "F:\\VS-Project\\Class library\\XStu.CacheMiddleware\\XStu.CacheMiddleware.csproj",
+        "packagesPath": "C:\\Users\\aoyun\\.nuget\\packages\\",
+        "outputPath": "F:\\VS-Project\\Class library\\XStu.CacheMiddleware\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\aoyun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\aoyun\\.nuget\\packages": {},
+          "F:\\上海维嘉\\pkgs16": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
