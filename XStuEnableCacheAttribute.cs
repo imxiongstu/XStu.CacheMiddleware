@@ -3,7 +3,7 @@
 namespace XStu.CacheMiddleware
 {
     [AttributeUsage(AttributeTargets.Method)]
-    public class XStuCacheAttribute : Attribute
+    public class XStuEnableCacheAttribute : Attribute
     {
         /// <summary>
         /// 过期时间(分)

@@ -1,20 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <Description>XStu(熊同学)缓存中间件，基于高可用Redis</Description>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Copyright>ImXiongStu</Copyright>
-    <PackageReleaseNotes>XStu(熊同学)缓存中间件，基于高可用Redis,简单易用，仅需标识属性和启用中间件两个步骤。</PackageReleaseNotes>
-    <Version>5.0.3</Version>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Description>XStu(熊同学)缓存中间件，基于高可用Redis
+★增加XStuEnableCache标识即可缓存该Action方法
+★增加XStuClearCache即可删除所有缓存
+		</Description>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<Copyright>ImXiongStu</Copyright>
+		<PackageReleaseNotes>XStu(熊同学)缓存中间件，基于高可用Redis,简单易用，仅需标识属性和启用中间件两个步骤。</PackageReleaseNotes>
+		<Version>5.1.0</Version>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-    <PackageReference Include="StackExchange.Redis" Version="2.2.4" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="StackExchange.Redis" Version="2.2.4" />
+	</ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties Reactor_Commands="" Reactor_Configuration="ALL" Reactor_Deploy="0" Reactor_Enabled="0" Reactor_Output="" Reactor_Project="" /></VisualStudio></ProjectExtensions>
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties Reactor_Commands="" Reactor_Configuration="ALL" Reactor_Deploy="0" Reactor_Enabled="0" Reactor_Output="" Reactor_Project="" />
+		</VisualStudio>
+	</ProjectExtensions>
 
 </Project>
