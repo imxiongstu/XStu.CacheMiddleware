@@ -1,20 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace XStu.CacheMiddleware
 {
+    [AttributeUsage(AttributeTargets.Method)]
     public class XStuCacheAttribute : Attribute
     {
         /// <summary>
-        /// 过期时间
+        /// 过期时间(分)
         /// </summary>
-        public double Expiry { get; set; }
+        public double Expiry { get; set; } = 0;
         /// <summary>
         /// 返回文件的Content-Type
         /// </summary>
-        public string ContentType { get; set; }
+        public ContentType ContentType { get; set; } = ContentType.Text;
+
+        /// <summary>
+        /// 应用缓存范围
+        /// </summary>
+        public ApplyRange ApplyRange { get; set; } = ApplyRange.ALL;
     }
+
+
+    public enum ApplyRange
+    {
+        Single,
+        ALL
+    }
+
+    public enum ContentType
+    {
+        Json,
+        Text
+    }
+
+
 }

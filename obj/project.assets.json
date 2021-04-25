@@ -4539,7 +4539,7 @@
     "C:\\Users\\aoyun\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "5.0.2",
+    "version": "5.0.3",
     "restore": {
       "projectUniqueName": "F:\\VS-Project\\Class library\\XStu.CacheMiddleware\\XStu.CacheMiddleware.csproj",
       "projectName": "XStu.CacheMiddleware",

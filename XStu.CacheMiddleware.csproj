@@ -6,7 +6,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>ImXiongStu</Copyright>
     <PackageReleaseNotes>XStu(熊同学)缓存中间件，基于高可用Redis,简单易用，仅需标识属性和启用中间件两个步骤。</PackageReleaseNotes>
-    <Version>5.0.2</Version>
+    <Version>5.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,19 +1,17 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StackExchange.Redis;
+using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace XStu.CacheMiddleware
 {
     /*==================================================================================
      * 
-     *                        【XStu缓存中间件】基于Redis高性能缓存
-     *                                Author：ImXiongStu
+     *                        【XStu缓存中间件】基于Redis，高性能缓存AOP中间件
+     *                         ★Author：ImXiongStu
+     *                         ★支持一致性处理·高可用并发
      * 
      * 
      ==================================================================================*/
@@ -41,9 +39,11 @@ namespace XStu.CacheMiddleware
                 if (xstuCacheAttribute == null) { await _next(context); return; }
 
                 string cacheKey = context.Request.Path + context.Request.QueryString;
+
+                #region 不存在缓存
                 if (!await _dataBase.KeyExistsAsync(cacheKey))
                 {
-                    //TODO:=======================如果不存在该缓存键============================
+                    //TODO:=======================如果不存在该缓存键============================================================
                     //将返回流保存记录
                     var originResponse = context.Response.Body;
                     MemoryStream ms = new MemoryStream();
@@ -57,10 +57,8 @@ namespace XStu.CacheMiddleware
                     ms.Position = 0;
                     //将内存流的内容复制给原本的返回流
                     await ms.CopyToAsync(originResponse);
-                    //将上下文的返回流变为原本的返回流
-                    context.Response.Body = originResponse;
-                    //将返回流的位置归零
-                    context.Response.Body.Position = 0;
+                    //恢复内存流的读写位置
+                    ms.Position = 0;
                     //读取返回流信息
                     var cacheData = await new StreamReader(ms).ReadToEndAsync();
 
@@ -73,17 +71,34 @@ namespace XStu.CacheMiddleware
                         _dataBase.StringSet(cacheKey, cacheData);
                     }
                     ms.Close();
+
+                    //将上下文的返回流变为原本的返回流(这一步必须要放在最后，不然执行完这一步以后，后面的操作就不会继续了)
+                    context.Response.Body = originResponse;
+                    //将返回流的位置归零
+                    context.Response.Body.Position = 0;
                     return;
                 }
+                #endregion
 
-                //TODO:=================================如果存在该缓存键=============================
+                #region 存在缓存
+                //TODO:=================================如果存在该缓存键=======================================================
+                //读取缓存
                 var cache = _dataBase.StringGet(cacheKey);
-                context.Response.ContentType = xstuCacheAttribute.ContentType;
+                //设置返回Content-Type
+                switch (xstuCacheAttribute.ContentType)
+                {
+                    case ContentType.Json:
+                        context.Response.ContentType = "application/json;charset=utf-8";
+                        break;
+                    case ContentType.Text:
+                        context.Response.ContentType = "text/plain;charset=utf-8";
+                        break;
+                }
                 await context.Response.WriteAsync(cache);
+                #endregion
             }
             catch
             {
-
             }
         }
     }
