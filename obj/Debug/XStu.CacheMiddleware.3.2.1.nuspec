@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>XStu.CacheMiddleware</id>
+    <version>3.2.1</version>
+    <authors>XStu.CacheMiddleware</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>XStu(熊同学)缓存中间件，基于高可用Redis
+★增加XStuEnableCache标识即可缓存该Action方法
+★增加XStuClearCache即可删除所有缓存</description>
+    <releaseNotes>XStu(熊同学)缓存中间件，基于高可用Redis,简单易用，仅需标识属性和启用中间件两个步骤。</releaseNotes>
+    <copyright>ImXiongStu</copyright>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="2.2.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc.Core" version="2.2.5" exclude="Build,Analyzers" />
+        <dependency id="StackExchange.Redis" version="2.2.4" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="F:\VS-Project\Class library\XStu.CacheMiddleware\bin\Debug\netcoreapp3.1\XStu.CacheMiddleware.dll" target="lib\netcoreapp3.1\XStu.CacheMiddleware.dll" />
+  </files>
+</package>

@@ -4,7 +4,7 @@ using StackExchange.Redis;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-
+using System.Text;
 namespace XStu.CacheMiddleware
 {
     /*==================================================================================
@@ -39,22 +39,27 @@ namespace XStu.CacheMiddleware
             {
                 //获取该请求的Action方法上面的缓存特性
                 var endPointFeature = context.Features.Get<IEndpointFeature>();
-                XStuEnableCacheAttribute xstuCacheAttribute = endPointFeature?.Endpoint.Metadata.GetMetadata<XStuEnableCacheAttribute>();
+                //获取启用缓存特性
+                XStuEnableCacheAttribute xstuEnableCacheAttribute = endPointFeature?.Endpoint.Metadata.GetMetadata<XStuEnableCacheAttribute>();
+                //获取清空缓存特性
                 XStuClearCacheAttribute xStuClearCacheAttribute = endPointFeature?.Endpoint.Metadata.GetMetadata<XStuClearCacheAttribute>();
                 //获取缓存Key
                 string cacheKey = context.Request.Path + context.Request.QueryString;
 
-                //是否含有清空缓存的属性
+                //是否含有清空缓存的属性，如果有清空缓存特性，则清空所有缓存
                 if (xStuClearCacheAttribute != null)
                 {
                     await _connectionMultiplexer.GetServer(_redisConStr).FlushDatabaseAsync(10);
-                    await _next(context); return;
+                    await _next(context);
+                    return;
                 }
 
-                //如果该请求的Action未标识缓存特性或此请求不是相关Action请求，直接跳过本中间件
-                if (xstuCacheAttribute == null)
+                //如果该请求的Action删除了缓存特性或此请求不是需要缓存Action请求，直接跳过本中间件,并删除此请求可能有的缓存（只删除单一缓存）
+                if (xstuEnableCacheAttribute == null)
                 {
-                    await _next(context); return;
+                    _dataBase.KeyDelete(cacheKey);
+                    await _next(context);
+                    return;
                 }
 
                 #region TODO:=================================如果不存在该缓存键=====================================================
@@ -78,9 +83,9 @@ namespace XStu.CacheMiddleware
                     //读取返回流信息
                     var cacheData = await new StreamReader(ms).ReadToEndAsync();
 
-                    if (xstuCacheAttribute.Expiry != 0)
+                    if (xstuEnableCacheAttribute.Expiry != 0)
                     {
-                        _dataBase.StringSet(cacheKey, cacheData, TimeSpan.FromMinutes(xstuCacheAttribute.Expiry));
+                        _dataBase.StringSet(cacheKey, cacheData, TimeSpan.FromMinutes(xstuEnableCacheAttribute.Expiry));
                     }
                     else
                     {
@@ -90,17 +95,13 @@ namespace XStu.CacheMiddleware
 
                     //将上下文的返回流变为原本的返回流(这一步必须要放在最后，不然执行完这一步以后，后面的操作就不会继续了)
                     context.Response.Body = originResponse;
-                    //将返回流的位置归零
-                    context.Response.Body.Position = 0;
                     return;
                 }
                 #endregion
 
                 #region TODO:=================================如果存在该缓存键=======================================================
-                //读取缓存
-                var cache = _dataBase.StringGet(cacheKey);
                 //设置返回Content-Type
-                switch (xstuCacheAttribute.ContentType)
+                switch (xstuEnableCacheAttribute.ContentType)
                 {
                     case ContentType.Json:
                         context.Response.ContentType = "application/json;charset=utf-8";
@@ -109,17 +110,15 @@ namespace XStu.CacheMiddleware
                         context.Response.ContentType = "text/plain;charset=utf-8";
                         break;
                 }
-                //执行下一个中间件
-                await _next(context);
+                //读取缓存
+                var cache = _dataBase.StringGet(cacheKey);
                 await context.Response.WriteAsync(cache);
                 #endregion
-
             }
             catch
             {
             }
         }
-
 
     }
 }

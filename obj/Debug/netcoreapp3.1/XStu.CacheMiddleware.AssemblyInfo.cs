@@ -16,11 +16,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("ImXiongStu")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("XStu(熊同学)缓存中间件，基于高可用Redis\r\n★增加XStuEnableCache标识即可缓存该Action方法\r\n★增加XStuClearCache即可" +
     "删除所有缓存\r\n\t\t")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("3.2.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.2.0")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("3.2.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.2.1")]
 [assembly: System.Reflection.AssemblyProductAttribute("XStu.CacheMiddleware")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XStu.CacheMiddleware")]
-[assembly: System.Reflection.AssemblyVersionAttribute("3.2.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("3.2.1.0")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
 
